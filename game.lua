@@ -21,24 +21,24 @@ local circlex
 local circley
 local function stone()
 	if #stones < 10 and stoneIsInside == true then
-		local stone = display.newImageRect(mainGroup, "stone.png", 20,20)
+		local stone = display.newImageRect(mainGroup, "stone.png", 25,25)
 		table.insert(stones, stone)
 		stone.x = display.contentCenterX
 	    stone.y = display.contentHeight - 30
 	    stone:addEventListener( "touch", touch )
 		stone.myName = "stone"
-		physics.addBody(stone, {radius=25, isSensor=true})
+		physics.addBody(stone, {radius=15, isSensor=true})
 		stoneIsInside = false
 		stone:toFront()
 	end
 end
 
 local function makeCircle(x, y)
-	local c1 = display.newCircle(mainGroup, x, y, 25)
+	local c1 = display.newCircle(mainGroup, x, y, 20)
     -- c1:setFillColor(0,0, 0, 0)
-    c1:setFillColor(255,255, 255, 1)
+    c1:setFillColor(255,255, 255, 0.1)
     c1.myName = "circle"
-    physics.addBody(c1, {radius=20, isSensor=true})
+    physics.addBody(c1, {radius=10, isSensor=true})
     c1:toBack()
 end
 
